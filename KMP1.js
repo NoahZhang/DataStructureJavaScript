@@ -1,4 +1,4 @@
-function get_next(str){
+		function get_next(str){
 				var i = 0;
 				var j = -1;
 				var result = [];
