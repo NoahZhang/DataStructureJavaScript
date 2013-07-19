@@ -1,6 +1,6 @@
 var insertionSort;
   		
-insertionSort = function(arr){
+insertionSort = function(arr) {
   var n, i, j, tmp;
 				
 	n = arr.length;
