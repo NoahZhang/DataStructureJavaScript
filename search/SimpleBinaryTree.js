@@ -1,13 +1,13 @@
- function BinaryTree() {
-            var rootNode = null;
-            var dataIndex = 0;
-            var treeData = [];
-            var BuildTree = function (node, prop) {
-                var data = treeData[dataIndex];
+function BinaryTree() {
+    var rootNode = null;
+    var dataIndex = 0;
+    var treeData = [];
+    var BuildTree = function (node, prop) {
+        var data = treeData[dataIndex];
 
-                if (dataIndex > treeData.length) {
-                    return;
-                }
+        if (dataIndex > treeData.length) {
+            return;
+        }
 
                 if (data == "#") {
                     dataIndex++;
