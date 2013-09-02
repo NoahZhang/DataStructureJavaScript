@@ -9,95 +9,95 @@ function BinaryTree() {
             return;
         }
 
-                if (data == "#") {
-                    dataIndex++;
-                    return;
+        if (data == "#") {
+            dataIndex++;
+            return;
+        } else {
+            tempNode = new TNode(data);
+
+            if (dataIndex == 0) {
+                rootNode = tempNode;
+            }
+
+            if (prop != undefined) {
+                if (prop == "L") {
+                   node.LNode = tempNode;
                 } else {
-                    tempNode = new TNode(data);
-
-                    if (dataIndex == 0) {
-                        rootNode = tempNode;
-                    }
-
-                    if (prop != undefined) {
-                        if (prop == "L") {
-                            node.LNode = tempNode;
-                        } else {
-                            node.RNode = tempNode;
-                        }
-                    }
-
-                    dataIndex++;
-
-                    (function (n) {
-                        BuildTree(n, 'L');
-                        BuildTree(n, 'R');
-                    } (tempNode));
+                    node.RNode = tempNode;
                 }
-            };
+            }
 
-            this.CreateBinaryTree = function (data) {
-                treeData = data;
+            dataIndex++;
 
-                BuildTree();
-            };
+            (function (n) {
+                BuildTree(n, 'L');
+                BuildTree(n, 'R');
+             } (tempNode));
+        }
+    };
 
-            this.PreOrderTraverse = function (node) {
-                if (node === undefined) {
-                    node = rootNode;
-                }
+    this.CreateBinaryTree = function (data) {
+        treeData = data;
 
-                if (node === null) {
-                    return;
-                }
+        BuildTree();
+    };
 
-                console.log(node.Data);
-                this.PreOrderTraverse(node.LNode);
-                this.PreOrderTraverse(node.RNode);
-            };
+    this.PreOrderTraverse = function (node) {
+        if (node === undefined) {
+            node = rootNode;
+        }
 
-            this.InOrderTraverse = function (node) {
-                if (node === undefined) {
-                    node = rootNode;
-                }
+        if (node === null) {
+            return;
+        }
 
-                if (node === null) {
-                    return;
-                }
+        console.log(node.Data);
+        this.PreOrderTraverse(node.LNode);
+        this.PreOrderTraverse(node.RNode);
+    };
 
-                this.InOrderTraverse(node.LNode);
-                console.log(node.Data);
-                this.InOrderTraverse(node.RNode);
-            };
+    this.InOrderTraverse = function (node) {
+        if (node === undefined) {
+            node = rootNode;
+        }
 
-            this.PostOrderTraverse = function (node) {
-                if (node === undefined) {
-                    node = rootNode;
-                }
+        if (node === null) {
+            return;
+        }
+
+        this.InOrderTraverse(node.LNode);
+        console.log(node.Data);
+        this.InOrderTraverse(node.RNode);
+    };
+
+    this.PostOrderTraverse = function (node) {
+        if (node === undefined) {
+            node = rootNode;
+        }
               
-                if (node === null) {
-                    return;
-                }
-
-                this.PostOrderTraverse(node.LNode);
-                this.PostOrderTraverse(node.RNode);
-                console.log(node.Data);
-            };
+        if (node === null) {
+            return;
         }
 
-        function TNode(data) {
-            this.LNode = null;
-            this.Data = data;
-            this.RNode = null;
-        }
+        this.PostOrderTraverse(node.LNode);
+        this.PostOrderTraverse(node.RNode);
+        console.log(node.Data);
+    };
+}
 
-        var tree = new BinaryTree();
+function TNode(data) {
+    this.LNode = null;
+    this.Data = data;
+    this.RNode = null;
+}
 
-        // Pre Order Create
-        tree.CreateBinaryTree(['A', 'B', 'D', 'G', '#', '#', 'H', '#', '#', '#', 'C', 'E', '#', 'I', '#', '#', 'F', '#', '#']);
-        console.log("---PreOrderTraverse---");
-        tree.PreOrderTraverse();
-        console.log("---InOrderTraverse---");
-        tree.InOrderTraverse();
-        console.log("---PostOrderTraverse---");
-        tree.PostOrderTraverse();
+var tree = new BinaryTree();
+
+// Pre Order Create
+tree.CreateBinaryTree(['A', 'B', 'D', 'G', '#', '#', 'H', '#', '#', '#', 'C', 'E', '#', 'I', '#', '#', 'F', '#', '#']);
+console.log("---PreOrderTraverse---");
+tree.PreOrderTraverse();
+console.log("---InOrderTraverse---");
+tree.InOrderTraverse();
+console.log("---PostOrderTraverse---");
+tree.PostOrderTraverse();
