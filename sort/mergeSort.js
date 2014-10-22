@@ -31,7 +31,7 @@ merge = function(left, right){
             } else {
                 result.push(right[0])
                 right.splice(0, 1);
-						} 
+	    } 
         } else if(left.length > 0) {
             result.push(left[0]);
             left.splice(0, 1);
