@@ -29,7 +29,7 @@ bubbleSort1 = function(arr){
     n = arr.length;
 				
     for(i = 0; i < n; i++){
-        for(j = n - 1; j >= i; j--){
+        for(j = n - 2; j >= i; j--){
             if(arr[j] > arr[j + 1])
                 swap(arr, j, j + 1);
         }
@@ -46,7 +46,7 @@ bubbleSort2 = function(arr){
 				
     for(i = 0; i < n && flag; i++){
         flag = false;
-        for(j = n - 1; j >= i; j--){
+        for(j = n - 2; j >= i; j--){
             if(arr[j] > arr[j + 1]){
                 swap(arr, j, j + 1);
                 flag = true;
